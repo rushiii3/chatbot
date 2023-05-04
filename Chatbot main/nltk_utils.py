@@ -8,5 +8,5 @@ def stem(word):
     return stemmer.stem(word)
 
 words = ["program", "programs", "programmer", "programming", "programmers"]
-print(stem)
+print(stem(words))
 #print(tokenize("Hello how are you"))
