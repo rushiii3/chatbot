@@ -29,7 +29,7 @@
          "responses": ["We're open every day from 9am-9pm", "Our hours are 9am-9pm every day"]
         },
         {"tag": "rental",
-         "patterns": ["Can we rent a moped?", "I'd like to rent a moped", "How does this work?" ],
+         "patterns": ["cl", "I'd like to rent a moped", "How does this work?" ],
          "responses": ["Are you looking to rent today or later this week?"],
          "context_set": "rentalday"
         },
