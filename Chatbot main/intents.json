@@ -38,5 +38,10 @@
      "responses": ["For rentals today please call 1-800-MYMOPED", "Same-day rentals please call 1-800-MYMOPED"],
      "context_filter": "rentalday"
     }
+    {
+        "tag": "joke",
+        "patterns" : ["can you tell me a joke","tell me a funny joke"],
+        "responses":["What did the snail who was riding on the turtle's back say? Wheeeee!","Why did the egg hide? It was a little chicken.","How do celebrities stay cool? They have many fans."]
+    }
 ]
 }
