@@ -20,27 +20,27 @@ model.load_state_dict(model_state)
 model.eval()
 bot_name = "ChatBot"
 print("Lets chat! (Type 'quit' to exit)")
-name = input("Please enter your name ")
-while True:
-    sentence = input(f"{name}:")
-    if sentence == "quit":
-        print("Happy to talk to you!!")
-        break
-    sentence = tokenize(sentence)
-    x = bag_of_words(sentence,pattern_all_words)
-    x = x.reshape(1,x.shape[0])
-    x = torch.from_numpy(x).to(device)
-    output = model(x)
-    _, predicted = torch.max(output,dim=1)
-    tag = tags[predicted.item()]
-    probs = torch.softmax(output,dim=1)
-    prob = probs[0][predicted.item()]
-    if prob.item()>0.75:
-        for intent in intents["intents"]:
-            if tag==intent["tag"]:
-                print(f"{bot_name}:{random.choice(intent['responses'])}")
-    else:
-        print(f"{bot_name}:I dont... understand")
+def get_response(msg):
+    while True:
+        sentence = input(f":")
+        if sentence == "quit":
+            print("Happy to talk to you!!")
+            break
+        sentence = tokenize(sentence)
+        x = bag_of_words(sentence,pattern_all_words)
+        x = x.reshape(1,x.shape[0])
+        x = torch.from_numpy(x).to(device)
+        output = model(x)
+        _, predicted = torch.max(output,dim=1)
+        tag = tags[predicted.item()]
+        probs = torch.softmax(output,dim=1)
+        prob = probs[0][predicted.item()]
+        if prob.item()>0.75:
+            for intent in intents["intents"]:
+                if tag==intent["tag"]:
+                    print(f"{bot_name}:{random.choice(intent['responses'])}")
+        else:
+            print(f"{bot_name}:I dont... understand")
 
 
 
