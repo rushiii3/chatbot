@@ -8,7 +8,6 @@ from nltk_utils import bag_of_words, tokenize
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 
-samples = "1. If you wish to compare our systems model side by side filtering to your specifications, visit <a href = 'https://digicor.com.au/advanced-search'> DiGiCOR Applicator </a> . <br> 2. If you wish to obtain pricing, simply ask to speak to a live agent"
 
 
 with open('intents.json', 'r') as json_data:
@@ -54,7 +53,7 @@ def get_response(msg):
             if tag == intent["tag"]:
                 return random.choice(intent['responses'])
     
-    return f"I'm sorry, but I cannot understand your query. {samples} "
+    return f"I'm sorry, but I cannot understand your query. "
 
 
 
